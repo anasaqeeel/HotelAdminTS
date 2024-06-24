@@ -1,25 +1,26 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
-function Login() {
+function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); // Hook for navigation
 
-  const handleLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault(); // Prevent the form from actually submitting
-    console.log('Login attempted with:', email, password);
-  };
 
   const handleSignup = () => {
     console.log('Redirect to Signup');
-    navigate('/Signup'); // Navigate to the signup route
+    // Implement redirect logic here or other behavior
+  };
+
+  const handleLogin = () => {
+    console.log('Redirect back to login');
+    navigate('/'); // Navigate to the login route
   };
 
   return (
     <div className="login-container">
       <div className="login-card">
-        <h1>Login</h1>
+        <h1>Signup</h1>
         <form>
           <div className="form-group">
             <label>Email address</label>
@@ -49,4 +50,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;

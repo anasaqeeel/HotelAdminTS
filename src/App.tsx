@@ -1,19 +1,16 @@
-import { Router } from 'express';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Create from './Components/Create';
-import Details from './Components/Details';
-import Card from './Components/Card';
 import NotFound from './Components/NotFound';
+import Login from './Components/Login';  // Import Login if needed at route level
+import Signup from './Components/Signup'; // Ensure this is imported correctly
 
 function App() {
   return (
-      <Routes>
-        <Route path= "/create" element={<Create />} />
-        <Route path= "/hotels/:id" element={<Details/>} />
-        <Route path= "/*" element={<NotFound />} />
-        <Route path= "/" element={<Card />} />
-      </Routes>
+    <Routes>
+      <Route path="/" element={<Login />} />  
+      <Route path="/Signup" element={<Signup />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
 
