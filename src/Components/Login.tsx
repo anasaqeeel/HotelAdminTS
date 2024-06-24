@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from './firebase';  // Ensure correct path
+import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { auth, googleProvider } from './firebase';  // Ensure correct path
 import { FirebaseError } from 'firebase/app';
 
 function Login() {
@@ -14,7 +14,7 @@ function Login() {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       console.log("Login successful with:", userCredential.user);
       alert('Login successful!');
-      navigate('/dashboard'); // Navigate to the dashboard or another page
+      navigate('/dashboard'); 
     } catch (error) {
       if (error instanceof FirebaseError) {
         console.error("Login failed:", error.message);
@@ -25,6 +25,23 @@ function Login() {
       }
     }
   };
+  const loginWithGoogle =async()=>{
+    try{
+      const googleCred= await signInWithPopup(auth,googleProvider)
+      console.log("Login successful with:", googleCred.user);
+      alert('Login successful!');
+      navigate('/dashboard'); 
+    }
+    catch( error ){
+      if (error instanceof FirebaseError) {
+        console.error("Login failed with google :", error.message);
+        alert('Login failed with google : ' + error.message);
+      } else {
+        console.error("Unknown error during login with google ", error);
+        alert('Login failed with google : An unknown error occurred');
+      }
+    }
+  }
 
   return (
     <div className="login-container">
@@ -41,6 +58,7 @@ function Login() {
           </div>
           <div className="button-group">
             <button type="submit">Login</button>
+            <button onClick={loginWithGoogle}> Sign In with Google </button>
           </div>
         </form>
       </div>
