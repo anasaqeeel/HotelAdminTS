@@ -1,48 +1,49 @@
 import React, { useState } from 'react';
 
 function Login() {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault(); // Prevent the form from submitting traditionally
-    console.log('Login attempted with:', username, password);
+  const handleLogin = (e:React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault(); // Prevent the form from actually submitting
+    console.log('Login attempted with:', email, password);
   };
 
-  const handleSignup = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault(); // Prevent form from submitting
-    console.log('Signup clicked');
+  const handleSignup = () => {
+    console.log('Redirect to Signup');
+    // Implement redirect logic here or other behavior
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form>
-        <div>
-          <label>
-            Username:
+    <div className="login-container">
+      <div className="login-card">
+        <h1>Login</h1>
+        <form>
+          <div className="form-group">
+            <label>Email address</label>
             <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter email"
             />
-          </label>
-        </div>
-        <div>
-          <label>
-            Password:
+          </div>
+          <div className="form-group">
+            <label>Password</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter password"
             />
-          </label>
-        </div>
-        <div>
-          <button type="submit" onClick={handleLogin}>Login</button>
-          <button type="button" onClick={handleSignup}>Signup</button>
-        </div>
-      </form>
+          </div>
+          <div className="button-group">
+            <button type="submit" onClick={handleLogin}>Login</button>
+            <button type="button" onClick={handleSignup}>Signup</button>
+          </div>
+          <p className="signup-link" onClick={handleSignup}>New user? Register Here</p>
+        </form>
+      </div>
     </div>
   );
 }

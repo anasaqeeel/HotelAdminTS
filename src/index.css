@@ -21,7 +21,7 @@ p {
 }
 
 h1 {
-  color: rgb(251, 173, 18);
+  color: rgb(5, 5, 5);
   font-weight: 700;
   font-size: 30px;
   margin: 0px;
@@ -50,6 +50,78 @@ h1 {
 }
 .navbar a:hover {
   color: rgb(77, 77, 77);
+}
+
+/* Center the login card in the middle of the viewport */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.login-card {
+  width: 300px;
+  padding: 40px; /* Increased padding for overall form */
+  background: white;
+  border-radius: 50px; /* Adjusted for a more rounded look */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center; /* Centering title and text within the card */
+}
+
+.login-card h1 {
+  margin-bottom: 20px; /* Space below the title */
+}
+
+.form-group {
+  margin-bottom: 15px; /* Space between form groups */
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #333;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: calc(100% - 20px); /* Adjust width to allow padding inside input */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  box-sizing: border-box; /* Includes padding and border in the element's width */
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px; /* Space before the button group starts */
+}
+
+button {
+  flex: 1; /* Buttons take up equal space */
+  margin: 0 5px; /* Space between buttons */
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.signup-link {
+  color: #007bff;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
 }
 
 /* LOADER */
